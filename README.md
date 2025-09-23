@@ -2,7 +2,7 @@
 Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Packet Tracer.
 **Student Name:** [Tsholofelo Modisapudi]  
 **Student ID:** [38391716]  
-**GitHub Repository:** [Link to your GitHub Repo]  
+**GitHub Repository:** [README.md]  
 **Packet Tracer Version:** [e.g., 8.2.1]
 
 ---
