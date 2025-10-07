@@ -76,3 +76,86 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
 ### 6.0 Appendix
 - 6.1 References
 - 6.2 Packet Tracer Project Files (.pkt)
+
+
+## Project Overview
+### Project Objectives
+CMPG 325 individual semester-long project Computer Networks aims to demonstrate comprehensive understanding of network design, implementation, and management through hands-on simulation using Cisco Packet Tracer. The primary objectives are:
+-Design and implement five fundamental network topologies: Bus, Mesh, Star, Ring, and Extended Star
+-Create and configure a hybrid topology that creatively integrates elements from multiple basic topologies
+
+Implement dual-stack networking with both IPv4 and IPv6 addressing schemes
+
+Configure network segmentation using VLAN technology
+
+Deploy and manage network services including HTTP web server, DNS, and DHCP
+
+Implement enterprise-grade wireless security using WPA3 protocol
+
+Document the entire process comprehensively on GitHub with proper version control
+
+Demonstrate functionality through a professional video presentation
+
+1.2 Project Deliverables
+By project completion, the following deliverables will be submitted:
+
+Documentation & Code Repository
+✅ GitHub Repository containing all project artifacts
+
+✅ README.md with comprehensive documentation
+
+✅ IP addressing tables for all topologies (IPv4 & IPv6)
+
+✅ Network diagrams and schematics
+
+✅ Configuration notes and implementation details
+
+✅ Screenshots of all configurations and successful tests
+
+✅ Version history showing progressive development through Git commits
+
+Cisco Packet Tracer Implementation
+✅ Five individual topology files (.pkt):
+
+Bus Topology
+
+Mesh Topology
+
+Star Topology
+
+Ring Topology
+
+Extended Star Topology
+
+✅ One integrated hybrid topology file (.pkt) featuring:
+
+Combined elements from multiple topologies
+
+VLAN segmentation
+
+Dual-stack IPv4/IPv6 implementation
+
+Centralized server with HTTP, DNS, and DHCP services
+
+✅ WPA3-secured wireless network integrated into hybrid topology
+
+Testing & Validation Evidence
+✅ Connectivity tests between devices within each topology
+
+✅ Inter-VLAN routing tests across network segments
+
+✅ Service validation (HTTP, DNS, DHCP functionality)
+
+✅ Wireless security verification and integration testing
+
+Video Demonstration
+✅ 15-30 minute professional presentation covering:
+
+Project overview and design rationale
+
+Configuration walkthroughs
+
+Live functionality demonstrations
+
+Personal reflection and lessons learned
+## Bus Topology
