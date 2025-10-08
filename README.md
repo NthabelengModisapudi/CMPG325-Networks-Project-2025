@@ -126,4 +126,31 @@ Gateway: 192.168.1.1
 
 <img width="1366" height="768" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/05c00b3f-a677-40d9-aeed-275871715ced" />
 
+---
 
+## Mesh Topology
+### Design Schematic
+### IP Address Table
+### Configuration Notes
+### Connectivity Test Evidence 
+
+
+## Star Topology
+### Design Schematic
+### IP Address Table
+### Configuration Notes
+### Connectivity Test Evidence 
+
+
+## Ring Topology
+### Design Schematic
+### IP Address Table
+### Configuration Notes
+### Connectivity Test Evidence 
+
+
+## Extended Star Topology
+### Design Schematic
+### IP Address Table
+### Configuration Notes
+### Connectivity Test Evidence 
