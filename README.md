@@ -92,3 +92,13 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 ---
 
 ## Bus Topology
+### Design Schematic
+
+[ PC2 ]                              [ PC0 ]
+    |                                   |
+    |                                   |
+[ Switch11 ]-----[ Switch10 ]-----[ Switch9 ]-----[ Switch0 ]
+(2950-24)         (2950T-24)      (2950T-24)       (2950T-24)
+                    |                                   |
+                    |                                   |
+                [ Laptop0 ]                          [ PC1 ]
