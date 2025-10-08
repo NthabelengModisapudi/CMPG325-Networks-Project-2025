@@ -133,6 +133,10 @@ Gateway: 192.168.1.1
 ### IP Address Table
 ### Configuration Notes
 ### Connectivity Test Evidence 
+<img width="1366" height="768" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/04d41a53-b454-4ff3-85d6-55ec971d29e4" />
+
+
+
 
 
 ## Star Topology
