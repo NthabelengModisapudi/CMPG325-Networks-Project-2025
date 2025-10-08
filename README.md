@@ -123,3 +123,7 @@ Subnet: Single flat network (192.168.1.0/24)
 Gateway: 192.168.1.1
 
 ### Connectivity Test Evidence (Screenshots)
+
+<img width="1366" height="768" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/05c00b3f-a677-40d9-aeed-275871715ced" />
+
+
