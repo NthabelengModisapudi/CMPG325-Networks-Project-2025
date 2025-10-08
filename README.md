@@ -103,7 +103,7 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
                     |                                   |
                 [ Laptop0 ]                          [ PC1 ]
 
-
+### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
 |-------------|-------|--------------|-------------|----------------|
 | PC0 | PC-PT | 192.168.1.3 | 255.255.255.0 | 192.168.1.1 |
@@ -121,3 +121,5 @@ Configuration Details:
 IP Scheme: Manual static IP configuration
 Subnet: Single flat network (192.168.1.0/24)
 Gateway: 192.168.1.1
+
+### Connectivity Test Evidence (Screenshots)
