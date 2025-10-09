@@ -15,7 +15,7 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
 - 2.1 Overall IP Addressing Plan (IPv4 & IPv6)
 - 2.2 Individual Topology Documentation
   - 2.2.1 Bus Topology
-    - Design Schematic
+    - Design Schematic (Topology design schematic folder)
     - IP Addressing Table
     - Configuration Notes
     - Connectivity Test Evidence (Screenshots)
@@ -23,17 +23,17 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
     - Design Schematic
     - IP Addressing Table
     - Configuration Notes
-    - Connectivity Test Evidence (Screenshots)
+    - Connectivity Test Evidence 
   - 2.2.3 Star Topology
     - Design Schematic
     - IP Addressing Table
     - Configuration Notes
-    - Connectivity Test Evidence (Screenshots)
+    - Connectivity Test Evidence 
   - 2.2.4 Ring Topology
     - Design Schematic
     - IP Addressing Table
     - Configuration Notes
-    - Connectivity Test Evidence (Screenshots)
+    - Connectivity Test Evidence 
   - 2.2.5 Extended Star Topology
     - Design Schematic
     - IP Addressing Table
@@ -93,17 +93,6 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 ## Network Topologies Design & Simulation
 
 ### Bus Topology
-#### Design Schematic
-
-[ PC2 ]                              [ PC0 ]
-    |                                   |
-    |                                   |
-[ Switch11 ]-----[ Switch10 ]-----[ Switch9 ]-----[ Switch0 ]
-(2950-24)         (2950T-24)      (2950T-24)       (2950T-24)
-                    |                                   |
-                    |                                   |
-                [ Laptop0 ]                          [ PC1 ]
-
 #### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
 |-------------|-------|--------------|-------------|----------------|
@@ -126,29 +115,6 @@ Gateway: 192.168.1.1
 <img width="1366" height="768" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/05c00b3f-a677-40d9-aeed-275871715ced" />
 
 ### Mesh Topology
-#### Design Schematic
-                            +-------------------+
-                            |    Switch19       |
-                            |   (2950T-24)      |
-                            +---------+---------+
-                                      |
-                                      |
-                  +-------------------+-------------------+
-                  |                                       |
-                  |                                       |
-        +---------+---------+                   +---------+---------+
-        |    Switch17       |                   |    Switch18       |
-        |   (2950T-24)      |                   |   (2950T-24)      |
-        +---------+---------+                   +---------+---------+
-                  |                                       |
-                  |                                       |
-      +-----------+-----------+               +-----------+-----------+
-      |           |           |               |           |           |
-+-----+-----+ +---+---+ +-----+-----+   +-----+-----+ +-----+-----+ +-----+-----+
-|   PC21    | | Laptop2| |   PC27   |   |   PC26    | | (Other    | | (Other    |
-| 192.168.4.3| |192.168.4.4| |192.168.4.6| |192.168.4.5| | Devices)  | | Devices)  |
-+-----------+ +-----------+ +-----------+ +-----------+ +-----------+ +-----------+
-
 #### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
 |-------------|-------|--------------|-------------|----------------|
@@ -170,18 +136,6 @@ Gateway: 192.168.4.1
 <img width="1366" height="768" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/04d41a53-b454-4ff3-85d6-55ec971d29e4" />
 
 ### Star Topology
-#### Design Schematic
-
-```mermaid
-graph TD
-    subgraph Star Topology
-        S[Switch]
-        S --> PC1[PC-PT PC1]
-        S --> PC2[PC-PT PC2]
-        S --> LTP1[Laptop-PT Laptop1]
-        S --> PC3[PC-PT PC3]
-    end
-
 #### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
 |-------------|-------|--------------|-------------|----------------|
@@ -205,7 +159,6 @@ Gateway: 192.168.3.1
 <img width="1366" height="768" alt="Screenshot (20)" src="https://github.com/user-attachments/assets/80d28d85-0f40-4949-8ba4-7ad9b15dc264" />
 
 ### Ring Topology
-#### Design Schematic
 #### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
 |-------------|-------|--------------|-------------|----------------|
@@ -266,3 +219,6 @@ Gateway: 192.168.2.1
 #### Connectivity Test Evidence 
 <img width="1366" height="768" alt="Screenshot (21)" src="https://github.com/user-attachments/assets/35abc1a4-c162-417f-864a-b17121bfe939" />
 
+---
+
+### Hybrid Topology
