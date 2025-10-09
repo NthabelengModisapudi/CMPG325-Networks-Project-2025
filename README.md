@@ -112,7 +112,6 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 | PC2 | PC-PT | 192.168.1.6 | 255.255.255.0 | 192.168.1.1 |
 | Laptop0 | Laptop-PT | 192.168.1.5 | 255.255.255.0 | 192.168.1.1 |
 
-
 #### Configuration Notes
 Devices Used:
 End Devices: 3x PC-PT, 1x Laptop-PT
@@ -124,7 +123,6 @@ Subnet: Single flat network (192.168.1.0/24)
 Gateway: 192.168.1.1
 
 #### Connectivity Test Evidence (Screenshots)
-
 <img width="1366" height="768" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/05c00b3f-a677-40d9-aeed-275871715ced" />
 
 ### Mesh Topology
@@ -150,8 +148,6 @@ Gateway: 192.168.1.1
 |   PC21    | | Laptop2| |   PC27   |   |   PC26    | | (Other    | | (Other    |
 | 192.168.4.3| |192.168.4.4| |192.168.4.6| |192.168.4.5| | Devices)  | | Devices)  |
 +-----------+ +-----------+ +-----------+ +-----------+ +-----------+ +-----------+
-
-
 
 #### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
@@ -186,6 +182,14 @@ Gateway: 192.168.4.1
 | Laptop11 | Laptop-PT | 192.168.3.3 | 255.255.255.0 | 192.168.3.1 |
 
 #### Configuration Notes
+Devices Used:
+End Devices: 4x PC-PT, 2x Laptop-PT
+Switches: 2950T-24 Switch
+Connections: Straight Through cables from end devices to one switch.
+Configuration Details:
+IP Scheme: Manual static IP configuration
+Gateway: 192.168.3.1
+
 #### Connectivity Test Evidence 
 <img width="1366" height="768" alt="Screenshot (20)" src="https://github.com/user-attachments/assets/80d28d85-0f40-4949-8ba4-7ad9b15dc264" />
 
@@ -202,6 +206,14 @@ Gateway: 192.168.4.1
 | PC25 | PC-PT | 192.168.4.6 | 255.255.255.0 | 192.168.4.1 |
 
 #### Configuration Notes
+Devices Used:
+End Devices: 6x PC-PT
+Switches: 2950-24 Switch (x5)
+Connections: Straight Through cables from end devices to switches. Cross Over cables between switches
+Configuration Details:
+IP Scheme: Manual static IP configuration
+Gateway: 192.168.4.1
+
 #### Connectivity Test Evidence 
 <img width="1366" height="768" alt="Screenshot (19)" src="https://github.com/user-attachments/assets/47e90006-7a0e-4f35-9f83-a6c745a21851" />
 
@@ -232,6 +244,14 @@ Gateway: 192.168.4.1
 | Laptop8 | Laptop-PT | 192.168.2.10 | 255.255.255.0 | 192.168.2.1 |
 
 #### Configuration Notes
+Devices Used:
+End Devices: 12x PC-PT, 8x Laptop-PT
+Switches: 2950-24 Switch (x5)
+Connections: Straight Through cables from end devices to switches. Cross Over cables between switches
+Configuration Details:
+IP Scheme: Manual static IP configuration
+Gateway: 192.168.2.1
+
 #### Connectivity Test Evidence 
 <img width="1366" height="768" alt="Screenshot (21)" src="https://github.com/user-attachments/assets/35abc1a4-c162-417f-864a-b17121bfe939" />
 
