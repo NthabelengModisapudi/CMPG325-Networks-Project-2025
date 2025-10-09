@@ -73,7 +73,6 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
 
 ### 6.0 Appendix
 - 6.1 References
-- 6.2 Packet Tracer Project Files (.pkt)
 
 ---
 
@@ -91,8 +90,10 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 
 ---
 
-## Bus Topology
-### Design Schematic
+## Network Topologies Design & Simulation
+
+### Bus Topology
+#### Design Schematic
 
 [ PC2 ]                              [ PC0 ]
     |                                   |
@@ -103,7 +104,7 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
                     |                                   |
                 [ Laptop0 ]                          [ PC1 ]
 
-### IP Address Table
+#### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
 |-------------|-------|--------------|-------------|----------------|
 | PC0 | PC-PT | 192.168.1.3 | 255.255.255.0 | 192.168.1.1 |
@@ -112,7 +113,7 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 | Laptop0 | Laptop-PT | 192.168.1.5 | 255.255.255.0 | 192.168.1.1 |
 
 
-### Configuration Notes
+#### Configuration Notes
 Devices Used:
 End Devices: 3x PC-PT, 1x Laptop-PT
 Switches: 2950-24 Switch (x4)
@@ -122,39 +123,59 @@ IP Scheme: Manual static IP configuration
 Subnet: Single flat network (192.168.1.0/24)
 Gateway: 192.168.1.1
 
-### Connectivity Test Evidence (Screenshots)
+#### Connectivity Test Evidence (Screenshots)
 
 <img width="1366" height="768" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/05c00b3f-a677-40d9-aeed-275871715ced" />
 
----
+### Mesh Topology
+#### Design Schematic
+                            +-------------------+
+                            |    Switch19       |
+                            |   (2950T-24)      |
+                            +---------+---------+
+                                      |
+                                      |
+                  +-------------------+-------------------+
+                  |                                       |
+                  |                                       |
+        +---------+---------+                   +---------+---------+
+        |    Switch17       |                   |    Switch18       |
+        |   (2950T-24)      |                   |   (2950T-24)      |
+        +---------+---------+                   +---------+---------+
+                  |                                       |
+                  |                                       |
+      +-----------+-----------+               +-----------+-----------+
+      |           |           |               |           |           |
++-----+-----+ +---+---+ +-----+-----+   +-----+-----+ +-----+-----+ +-----+-----+
+|   PC21    | | Laptop2| |   PC27   |   |   PC26    | | (Other    | | (Other    |
+| 192.168.4.3| |192.168.4.4| |192.168.4.6| |192.168.4.5| | Devices)  | | Devices)  |
++-----------+ +-----------+ +-----------+ +-----------+ +-----------+ +-----------+
 
-## Mesh Topology
-### Design Schematic
-### IP Address Table
-### Configuration Notes
-### Connectivity Test Evidence 
+
+
+#### IP Address Table
+#### Configuration Notes
+#### Connectivity Test Evidence 
 <img width="1366" height="768" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/04d41a53-b454-4ff3-85d6-55ec971d29e4" />
 
+### Star Topology
+#### Design Schematic
+#### IP Address Table
+#### Configuration Notes
+#### Connectivity Test Evidence 
+<img width="1366" height="768" alt="Screenshot (20)" src="https://github.com/user-attachments/assets/80d28d85-0f40-4949-8ba4-7ad9b15dc264" />
 
+### Ring Topology
+#### Design Schematic
+#### IP Address Table
+#### Configuration Notes
+#### Connectivity Test Evidence 
+<img width="1366" height="768" alt="Screenshot (19)" src="https://github.com/user-attachments/assets/47e90006-7a0e-4f35-9f83-a6c745a21851" />
 
+### Extended Star Topology
+#### Design Schematic
+#### IP Address Table
+#### Configuration Notes
+#### Connectivity Test Evidence 
+<img width="1366" height="768" alt="Screenshot (21)" src="https://github.com/user-attachments/assets/35abc1a4-c162-417f-864a-b17121bfe939" />
 
-
-## Star Topology
-### Design Schematic
-### IP Address Table
-### Configuration Notes
-### Connectivity Test Evidence 
-
-
-## Ring Topology
-### Design Schematic
-### IP Address Table
-### Configuration Notes
-### Connectivity Test Evidence 
-
-
-## Extended Star Topology
-### Design Schematic
-### IP Address Table
-### Configuration Notes
-### Connectivity Test Evidence 
