@@ -1,4 +1,11 @@
 # Network Topology Documentation
+## Bus Topology
+graph LR
+    subgraph Point-to-Point Links
+        PC5 -- ICMP --> PC23
+        PC22 -- ICMP --> PC24
+        PC25 -- ICMP --> PC4
+    end
 
 ## Star Topology
 ```mermaid
