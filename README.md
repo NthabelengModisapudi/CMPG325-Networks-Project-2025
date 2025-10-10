@@ -15,7 +15,6 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
 - 2.1 Overall IP Addressing Plan (IPv4 & IPv6)
 - 2.2 Individual Topology Documentation
   - 2.2.1 Bus Topology
-    - Design Schematic (Topology design schematic folder)
     - IP Addressing Table
     - Configuration Notes
     - Connectivity Test Evidence (Screenshots)
