@@ -1,31 +1,15 @@
-#Bus Topology Schematic
-# Network Topology
+##Bus Topology Schematic
 ```mermaid
-flowchart TD
-    subgraph A1 [Logical]
-        subgraph B1 [Physical | x: 3590 y: 780]
-            subgraph C1 [Data Tracking]
-                R1["R1"]
-                R2["R2"] 
-                R3["R3"]
-                R4["R4"]
-                R5["R5"]
-                R6["R6"]
-                R_rest["... (R7-R741)"]
-            end
-        end
-    end
+graph TB
+    PC1[PC-PT: PC1] --> Switch0[2951T-24: Switch0]
+    PC0[PC-PT: PC0] --> Switch0
+    Laptop0[Laptop_PT: Laptop0] --> Switch0
     
-    subgraph A2 [User Devices]
-        Laptop1["💻 Laptop"]
-        Laptop2["💻 Laptop"]
-        PC1["🖥️ PC"]
-        PC2["🖥️ PC"]
-    end
+    Switch0 --> Switch9[2950T-24: Switch9]
+    Switch0 --> Switch10[2951T-24: Switch10]
     
-    %% Direct connections as shown in original
-    R1 --> Laptop1
-    R2 --> Laptop2
-    R3 --> PC1
-    R4 --> PC2
+    Switch9 --> Switch11[2950-24: Switch11]
+    Switch10 --> Switch11
+    
+    PC2[PC-PT: PC-2] --> Switch11
 ```
