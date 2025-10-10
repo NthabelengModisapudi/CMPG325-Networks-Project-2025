@@ -1,16 +1,30 @@
 #Bus Topology Schematic
-
-```mermaid
 graph TB
-    PC1[PC-PT: PC1] --> Switch0[2951T-24: Switch0]
-    PC0[PC-PT: PC0] --> Switch0
-    Laptop0[Laptop_PT: Laptop0] --> Switch0
+    %% Main backbone nodes
+    R1 --> R2
+    R2 --> R3
+    R3 --> R4
+    R4 --> R5
     
-    Switch0 --> Switch9[2950T-24: Switch9]
-    Switch0 --> Switch10[2951T-24: Switch10]
+    %% Skip many nodes for readability
+    R5 --> R100
+    R100 --> R200
+    R200 --> R300
+    R300 --> R400
+    R400 --> R500
+    R500 --> R600
+    R600 --> R700
     
-    Switch9 --> Switch11[2950-24: Switch11]
-    Switch10 --> Switch11
+    %% Highlight repeated nodes
+    R700 --> R728
+    R728 --> R741
+    R741 --> R748
     
-    PC2[PC-PT: PC-2] --> Switch11
-```
+    %% Show redundancy paths
+    R728 -.-> R728
+    R741 -.-> R741
+    R748 -.-> R748
+    
+    %% Styling for repeated nodes
+    class R728,R741,R748 redundant;
+    classDef redundant fill:#f96;
