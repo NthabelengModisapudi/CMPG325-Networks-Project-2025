@@ -221,3 +221,15 @@ Gateway: 192.168.2.1
 ---
 
 ### Hybrid Topology
+
+
+
+
+
+
+
+
+
+## Project Reflection
+### Challenges Encountered
+Devices from different topologies should NOT have the same IP addresses. decided to have devices from different topologies have the same IP address like in the mesh and ring topologies as. later desi
