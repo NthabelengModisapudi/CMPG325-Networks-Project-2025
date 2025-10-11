@@ -89,8 +89,98 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 
 ---
 
-## Network Topologies Design & Simulation
+## Overall IP Addressing Plan (IPv4 & IPv6)
+# Network Addressing Plan
 
+## IPv4 Addressing Scheme
+
+| Topology | Network Address | Subnet Mask | Usable Range | Default Gateway | VLAN ID | Purpose |
+|----------|-----------------|-------------|--------------|-----------------|---------|---------|
+| Bus | 192.168.1.0 | 255.255.255.0 | .3 - .254 | 192.168.1.1 | 10 | Legacy/Simple Network |
+| Extended Star | 192.168.2.0 | 255.255.255.0 | .3 - .254 | 192.168.2.1 | 20 | Main Office Network |
+| Star | 192.168.3.0 | 255.255.255.0 | .3 - .254 | 192.168.3.1 | 30 | Departmental Network |
+| Mesh & Ring | 192.168.4.0 | 255.255.255.0 | .3 - .254 | 192.168.4.1 | 40 | Critical Infrastructure |
+| Server Network | 192.168.10.0 | 255.255.255.0 | .10 - .50 | 192.168.10.1 | 99 | Servers (HTTP/DNS/DHCP) |
+| Infrastructure | 192.168.100.0 | 255.255.255.252 | .1 - .2 | N/A | N/A | Router-to-Router Links |
+
+## IPv6 Addressing Scheme
+
+| Topology | IPv6 Prefix | IPv6 Gateway | Purpose |
+|----------|-------------|--------------|---------|
+| Bus | 2001:DB8:ACAD:1::/64 | 2001:DB8:ACAD:1::1 | Legacy Network |
+| Extended Star | 2001:DB8:ACAD:2::/64 | 2001:DB8:ACAD:2::1 | Main Office |
+| Star | 2001:DB8:ACAD:3::/64 | 2001:DB8:ACAD:3::1 | Departmental |
+| Mesh & Ring | 2001:DB8:ACAD:4::/64 | 2001:DB8:ACAD:4::1 | Critical Systems |
+| Server Network | 2001:DB8:ACAD:A::/64 | 2001:DB8:ACAD:A::1 | Servers |
+| Infrastructure | 2001:DB8:ACAD:64::/126 | N/A | Router Links |
+
+## Detailed Device Assignment Table
+
+### Bus Topology (VLAN 10)
+
+| Device | IPv4 Address | IPv6 Address | Default Gateway |
+|--------|-------------|-------------|----------------|
+| PC0 | 192.168.1.3 | 2001:DB8:ACAD:1::3 | 192.168.1.1 |
+| PC1 | 192.168.1.4 | 2001:DB8:ACAD:1::4 | 192.168.1.1 |
+| PC2 | 192.168.1.6 | 2001:DB8:ACAD:1::6 | 192.168.1.1 |
+| Laptop0 | 192.168.1.5 | 2001:DB8:ACAD:1::5 | 192.168.1.1 |
+
+### Extended Star Topology (VLAN 20)
+
+| Device | IPv4 Address | IPv6 Address | Default Gateway |
+|--------|-------------|-------------|----------------|
+| PC20 | 192.168.2.23 | 2001:DB8:ACAD:2::17 | 192.168.2.1 |
+| PC19 | 192.168.2.22 | 2001:DB8:ACAD:2::16 | 192.168.2.1 |
+| PC18 | 192.168.2.20 | 2001:DB8:ACAD:2::14 | 192.168.2.1 |
+
+### Star Topology (VLAN 30)
+
+| Device | IPv4 Address | IPv6 Address | Default Gateway |
+|--------|-------------|-------------|----------------|
+| PC6 | 192.168.3.7 | 2001:DB8:ACAD:3::7 | 192.168.3.1 |
+| PC7 | 192.168.3.8 | 2001:DB8:ACAD:3::8 | 192.168.3.1 |
+| PC8 | 192.168.3.6 | 2001:DB8:ACAD:3::6 | 192.168.3.1 |
+
+### Mesh & Ring Topologies (VLAN 40)
+
+#### Mesh Devices
+
+| Device | IPv4 Address | IPv6 Address | Default Gateway |
+|--------|-------------|-------------|----------------|
+| PC21 | 192.168.4.3 | 2001:DB8:ACAD:4::3 | 192.168.4.1 |
+| PC26 | 192.168.4.5 | 2001:DB8:ACAD:4::5 | 192.168.4.1 |
+| PC27 | 192.168.4.6 | 2001:DB8:ACAD:4::6 | 192.168.4.1 |
+| Laptop2 | 192.168.4.4 | 2001:DB8:ACAD:4::4 | 192.168.4.1 |
+
+#### Ring Devices
+
+| Device | IPv4 Address | IPv6 Address | Default Gateway |
+|--------|-------------|-------------|----------------|
+| PC4 | 192.168.4.3 | 2001:DB8:ACAD:4::13 | 192.168.4.1 |
+| PC5 | 192.168.4.4 | 2001:DB8:ACAD:4::14 | 192.168.4.1 |
+| PC22 | 192.168.4.5 | 2001:DB8:ACAD:4::15 | 192.168.4.1 |
+
+### Server Network (VLAN 99)
+
+| Server | IPv4 Address | IPv6 Address | Default Gateway | Service |
+|--------|-------------|-------------|----------------|---------|
+| HTTP Server | 192.168.10.10 | 2001:DB8:ACAD:A::10 | 192.168.10.1 | Web |
+| DNS Server | 192.168.10.11 | 2001:DB8:ACAD:A::11 | 192.168.10.1 | DNS |
+| DHCP Server | 192.168.10.12 | 2001:DB8:ACAD:A::12 | 192.168.10.1 | DHCP |
+
+## Router Interface Configuration
+
+### Core Router Interfaces
+
+| Interface | IPv4 Address | IPv6 Address | Connected To |
+|-----------|-------------|-------------|-------------|
+| G0/0.10 | 192.168.1.1 | 2001:DB8:ACAD:1::1 | Bus Topology |
+| G0/0.20 | 192.168.2.1 | 2001:DB8:ACAD:2::1 | Extended Star |
+| G0/0.30 | 192.168.3.1 | 2001:DB8:ACAD:3::1 | Star Topology |
+| G0/0.40 | 192.168.4.1 | 2001:DB8:ACAD:4::1 | Mesh & Ring |
+| G0/0.99 | 192.168.10.1 | 2001:DB8:ACAD:A::1 | Servers |
+
+## Individual Topology Documentation
 ### Bus Topology
 #### IP Address Table
 | Device Name | Model | IPv4 Address | Subnet Mask | Default Gateway |
