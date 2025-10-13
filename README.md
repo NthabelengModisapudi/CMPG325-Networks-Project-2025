@@ -40,21 +40,13 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
     - Connectivity Test Evidence (Screenshots)
 
 - 2.3 Hybrid Topology
-  - 2.3.1 Design Concept and Rationale
+  - 2.3.1 Hybrid diagram
   - 2.3.2 Final Hybrid Network Diagram
   - 2.3.3 Comprehensive IP Addressing Table
   - 2.3.4 VLAN Configuration
     - VLAN Table (ID, Name, Assigned Network)
     - Switch Configuration Screenshots
-  - 2.3.5 Server Configuration (HTTP, DNS, DHCP)
-    - Server IP Settings
-    - Service Configuration Screenshots
-  - 2.3.6 Hybrid Network Testing
-    - Inter-VLAN Routing Test (Ping across segments)
-    - HTTP Server Access Test (Web Browser)
-    - DNS Resolution Test (Using Domain Name)
-    - DHCP Functionality Test
-
+  
 ### 3.0 Phase II: Individual Network Feature Configuration
 - 3.1 WPA3 Security Implementation
   - 3.1.1 Wireless Access Point/Router Configuration
@@ -307,6 +299,7 @@ Gateway: 192.168.2.1
 ### Hybrid Topology
 <img width="1366" height="768" alt="Screenshot (22)" src="https://github.com/user-attachments/assets/2981d36f-485e-43ac-9b0e-53e921b9f0aa" />
 
+<img width="1366" height="768" alt="Screenshot (23)" src="https://github.com/user-attachments/assets/49b5ae2a-90d6-4e88-925c-b0900dd4a97f" />
 
 ## Project Reflection
 ### Challenges Encountered
