@@ -62,16 +62,9 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
   - 3.1.3 Wireless Client Connection Process
   - 3.1.4 Security and Integration Test (Ping from wireless client to wired network)
 
-### 4.0 Phase III: Video Demonstration
-- 4.1 Video Link
-- 4.2 Video Outline and Summary
-
 ### 5.0 Project Reflection
 - 5.1 Challenges Encountered
 - 5.2 Key Learnings
-
-### 6.0 Appendix
-- 6.1 References
 
 ---
 
@@ -312,15 +305,9 @@ Gateway: 192.168.2.1
 ---
 
 ### Hybrid Topology
-
-
-
-
-
-
-
+<img width="1366" height="768" alt="Screenshot (22)" src="https://github.com/user-attachments/assets/2981d36f-485e-43ac-9b0e-53e921b9f0aa" />
 
 
 ## Project Reflection
 ### Challenges Encountered
-Devices from different topologies should NOT have the same IP addresses. decided to have devices from different topologies have the same IP address like in the mesh and ring topologies as. later desi
+Devices from different topologies should nothave the same IP addresses.My mistake was to have devices from different topologies have the same IP address like in the mesh and ring topologies as it caused IP configuration conflits. Later decided to change Mesh Topology devices' IP address.
