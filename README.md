@@ -141,7 +141,7 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 | PC7 | 192.168.3.8 | 2001:DB8:ACAD:3::8 | 192.168.3.1 |
 | PC8 | 192.168.3.6 | 2001:DB8:ACAD:3::6 | 192.168.3.1 |
 
-### Mesh & Ring Topologies (VLAN 40)
+### Mesh Topology (VLAN 40)
 
 #### Mesh Devices
 
@@ -152,13 +152,14 @@ CMPG 325 individual semester-long project Computer Networks aims to demonstrate 
 | PC27 | 192.168.4.6 | 2001:DB8:ACAD:4::6 | 192.168.4.1 |
 | Laptop2 | 192.168.4.4 | 2001:DB8:ACAD:4::4 | 192.168.4.1 |
 
+### Ring Topology (VLAN 50)
 #### Ring Devices
 
 | Device | IPv4 Address | IPv6 Address | Default Gateway |
 |--------|-------------|-------------|----------------|
-| PC4 | 192.168.4.3 | 2001:DB8:ACAD:4::13 | 192.168.4.1 |
-| PC5 | 192.168.4.4 | 2001:DB8:ACAD:4::14 | 192.168.4.1 |
-| PC22 | 192.168.4.5 | 2001:DB8:ACAD:4::15 | 192.168.4.1 |
+| PC4 | 192.168.4.3 | 2001:DB8:ACAD:5::13 | 192.168.4.1 |
+| PC5 | 192.168.4.4 | 2001:DB8:ACAD:5::14 | 192.168.4.1 |
+| PC22 | 192.168.4.5 | 2001:DB8:ACAD:5::15 | 192.168.4.1 |
 
 ### Server Network (VLAN 99)
 
