@@ -1,0 +1,363 @@
+Create VLANs on each switch:
+Switvh> enable
+Router# configure terminal
+! On the switch connected to bus topology
+Switch(config)# vlan 50
+Switch(config-vlan)# name Ring-Segment
+Switch(config-vlan)# exit
+
+! Configure the port connected to bus as access port
+Switch(config)# interface fastEthernet 0/1
+Switch(config-if)# description Connected-to-Ring-Topology
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 50
+
+Switch(config-if)# exit
+
+! Configure trunk to core network
+Switch(config)# interface gigabitEthernet 0/1
+
+Switch(config-if)# switchport mode trunk
+Switch(config-if)#
+
+Switch(config-if)# no shutdown
+Switch(config-if)# exit
+
+---
+Core
+
+Core-Router> enable
+Core-Router# configure terminal
+Core-Router(config)# hostname Core-Router
+Core-Router(config)# enable secret class123
+Core-Router(config)# ipv6 unicast-routing
+
+! Console and VTY lines
+Core-Router(config)# line console 0
+Core-Router(config-line)# password cisco123
+Core-Router(config-line)# login
+Core-Router(config-line)# exit
+Core-Router(config)# line vty 0 4
+Core-Router(config-line)# password cisco123
+Core-Router(config-line)# login
+Core-Router(config-line)# exit
+
+! Serial 0/1/0 - Bus Router
+Core-Router(config)# interface serial 0/1/0
+Core-Router(config-if)# description To-Bus-Router-S0/3/0
+Core-Router(config-if)# ip address 192.168.100.1 255.255.255.252
+Core-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::1/126
+Core-Router(config-if)# clock rate 2000000
+Core-Router(config-if)# bandwidth 2000
+Core-Router(config-if)# no shutdown
+Core-Router(config-if)# exit
+
+! Serial 0/1/1 - ExtendedStar Router
+Core-Router(config)# interface serial 0/1/1
+Core-Router(config-if)# description To-ExtendedStar-Router-S0/3/0
+Core-Router(config-if)# ip address 192.168.100.5 255.255.255.252
+Core-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::5/126
+Core-Router(config-if)# clock rate 2000000
+Core-Router(config-if)# bandwidth 2000
+Core-Router(config-if)# no shutdown
+Core-Router(config-if)# exit
+
+! Serial 0/2/0 - Ring Router
+Core-Router(config)# interface serial 0/2/0
+Core-Router(config-if)# description To-Ring-Router-S0/3/0
+Core-Router(config-if)# ip address 192.168.100.17 255.255.255.252
+Core-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::17/126
+Core-Router(config-if)# clock rate 2000000
+Core-Router(config-if)# bandwidth 2000
+Core-Router(config-if)# no shutdown
+Core-Router(config-if)# exit
+
+! Serial 0/2/1 - Star Router
+Core-Router(config)# interface serial 0/2/1
+Core-Router(config-if)# description To-Star-Router-S0/3/0
+Core-Router(config-if)# ip address 192.168.100.9 255.255.255.252
+Core-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::9/126
+Core-Router(config-if)# clock rate 2000000
+Core-Router(config-if)# bandwidth 2000
+Core-Router(config-if)# no shutdown
+Core-Router(config-if)# exit
+
+! Serial 0/3/0 - Mesh Router
+Core-Router(config)# interface serial 0/3/0
+Core-Router(config-if)# description To-Mesh-Router-S0/3/0
+Core-Router(config-if)# ip address 192.168.100.13 255.255.255.252
+Core-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::13/126
+Core-Router(config-if)# clock rate 2000000
+Core-Router(config-if)# bandwidth 2000
+Core-Router(config-if)# no shutdown
+Core-Router(config-if)# exit
+
+! OSPF Configuration
+Core-Router(config)# router ospf 1
+Core-Router(config-router)# router-id 1.1.1.1
+Core-Router(config-router)# network 192.168.100.0 0.0.0.3 area 0
+Core-Router(config-router)# network 192.168.100.4 0.0.0.3 area 0
+Core-Router(config-router)# network 192.168.100.8 0.0.0.3 area 0
+Core-Router(config-router)# network 192.168.100.12 0.0.0.3 area 0
+Core-Router(config-router)# network 192.168.100.16 0.0.0.3 area 0
+Core-Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
+Core-Router(config-router)# network 192.168.2.0 0.0.0.255 area 0
+Core-Router(config-router)# network 192.168.3.0 0.0.0.255 area 0
+Core-Router(config-router)# network 192.168.4.0 0.0.0.255 area 0
+Core-Router(config-router)# network 192.168.5.0 0.0.0.255 area 0
+Core-Router(config-router)# passive-interface default
+Core-Router(config-router)# no passive-interface serial 0/1/0
+Core-Router(config-router)# no passive-interface serial 0/1/1
+Core-Router(config-router)# no passive-interface serial 0/2/0
+Core-Router(config-router)# no passive-interface serial 0/2/1
+Core-Router(config-router)# no passive-interface serial 0/3/0
+Core-Router(config-router)# exit
+
+! Security and save
+Core-Router(config)# service password-encryption
+Core-Router(config)# banner motd # Authorized Access Only - Core Router #
+Core-Router(config)# exit
+Core-Router# copy running-config startup-config
+---------------------------------
+Steps I took to configure bus topology router
+
+Router> enable
+Router# configure terminal
+Router(config)# hostname Bus-Router
+Bus-Router(config)# enable secret class123
+
+! Console and VTY lines
+Bus-Router(config)# line console 0
+Bus-Router(config-line)# password cisco123
+Bus-Router(config-line)# login
+Bus-Router(config-line)# exit
+Bus-Router(config)# line vty 0 4
+Bus-Router(config-line)# password cisco123
+Bus-Router(config-line)# login
+Bus-Router(config-line)# exit
+
+! Interface to Bus Topology
+Bus-Router(config)# interface gigabitEthernet 0/0
+Bus-Router(config-if)# description Connected-to-Bus-Topology
+Bus-Router(config-if)# ip address 192.168.1.1 255.255.255.0
+Bus-Router(config-if)# ipv6 address 2001:DB8:ACAD:1::1/64
+Bus-Router(config-if)# no shutdown
+Bus-Router(config-if)# exit
+
+! Serial interface to Core Router
+Bus-Router(config)# interface serial 0/3/0
+Bus-Router(config-if)# description To-Core-Router-S0/1/0
+Bus-Router(config-if)# ip address 192.168.100.2 255.255.255.252
+Bus-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::2/126
+Bus-Router(config-if)# bandwidth 2000
+Bus-Router(config-if)# no shutdown
+Bus-Router(config-if)# exit
+
+! Routing
+Bus-Router(config)# ipv6 unicast-routing
+Bus-Router(config)# router ospf 1
+Bus-Router(config-router)# router-id 2.2.2.2
+Bus-Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
+Bus-Router(config-router)# network 192.168.100.0 0.0.0.3 area 0
+Bus-Router(config-router)# exit
+
+! Security and save
+Bus-Router(config)# service password-encryption
+Bus-Router(config)# banner motd # Bus Topology Router #
+Bus-Router(config)# exit
+Bus-Router# copy running-config startup-config
+
+---
+
+---
+ExtendedStar Router Configuration 
+Router> enable
+Router# configure terminal
+Router(config)# hostname ExtendedStar-Router
+ExtendedStar-Router(config)# enable secret class123
+
+! Console and VTY lines
+ExtendedStar-Router(config)# line console 0
+ExtendedStar-Router(config-line)# password cisco123
+ExtendedStar-Router(config-line)# login
+ExtendedStar-Router(config-line)# exit
+ExtendedStar-Router(config)# line vty 0 4
+ExtendedStar-Router(config-line)# password cisco123
+ExtendedStar-Router(config-line)# login
+ExtendedStar-Router(config-line)# exit
+
+! Interface to Extended Star Topology
+ExtendedStar-Router(config)# interface gigabitEthernet 0/0
+ExtendedStar-Router(config-if)# description To-Extended-Star-Topology
+ExtendedStar-Router(config-if)# ip address 192.168.2.1 255.255.255.0
+ExtendedStar-Router(config-if)# ipv6 address 2001:DB8:ACAD:2::1/64
+ExtendedStar-Router(config-if)# no shutdown
+ExtendedStar-Router(config-if)# exit
+
+! Serial interface to Core Router
+ExtendedStar-Router(config)# interface serial 0/3/0
+ExtendedStar-Router(config-if)# description To-Core-Router-S0/1/1
+ExtendedStar-Router(config-if)# ip address 192.168.100.6 255.255.255.252
+ExtendedStar-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::6/126
+ExtendedStar-Router(config-if)# bandwidth 2000
+ExtendedStar-Router(config-if)# no shutdown
+ExtendedStar-Router(config-if)# exit
+
+! Routing
+ExtendedStar-Router(config)# ipv6 unicast-routing
+ExtendedStar-Router(config)# router ospf 1
+ExtendedStar-Router(config-router)# router-id 3.3.3.3
+ExtendedStar-Router(config-router)# network 192.168.2.0 0.0.0.255 area 0
+ExtendedStar-Router(config-router)# network 192.168.100.4 0.0.0.3 area 0
+ExtendedStar-Router(config-router)# exit
+
+! Security and save
+ExtendedStar-Router(config)# service password-encryption
+ExtendedStar-Router(config)# banner motd # Extended Star Router #
+ExtendedStar-Router(config)# exit
+ExtendedStar-Router# copy running-config startup-config
+---
+Star Router Configuration 
+Router> enable
+Router# configure terminal
+Router(config)# hostname Star-Router
+Star-Router(config)# enable secret class123
+
+! Console and VTY lines
+Star-Router(config)# line console 0
+Star-Router(config-line)# password cisco123
+Star-Router(config-line)# login
+Star-Router(config-line)# exit
+Star-Router(config)# line vty 0 4
+Star-Router(config-line)# password cisco123
+Star-Router(config-line)# login
+Star-Router(config-line)# exit
+
+! Interface to Star Topology
+Star-Router(config)# interface gigabitEthernet 0/0
+Star-Router(config-if)# description To-Star-Topology
+Star-Router(config-if)# ip address 192.168.3.1 255.255.255.0
+Star-Router(config-if)# ipv6 address 2001:DB8:ACAD:3::1/64
+Star-Router(config-if)# no shutdown
+Star-Router(config-if)# exit
+
+! Serial interface to Core Router
+Star-Router(config)# interface serial 0/3/0
+Star-Router(config-if)# description To-Core-Router-S0/2/1
+Star-Router(config-if)# ip address 192.168.100.10 255.255.255.252
+Star-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::10/126
+Star-Router(config-if)# bandwidth 2000
+Star-Router(config-if)# no shutdown
+Star-Router(config-if)# exit
+
+! Routing
+Star-Router(config)# ipv6 unicast-routing
+Star-Router(config)# router ospf 1
+Star-Router(config-router)# router-id 4.4.4.4
+Star-Router(config-router)# network 192.168.3.0 0.0.0.255 area 0
+Star-Router(config-router)# network 192.168.100.8 0.0.0.3 area 0
+Star-Router(config-router)# exit
+
+! Security and save
+Star-Router(config)# service password-encryption
+Star-Router(config)# banner motd # Star Topology Router #
+Star-Router(config)# exit
+Star-Router# copy running-config startup-config
+------------------
+
+Mesh Router Configuration 
+Router> enable
+Router# configure terminal
+Router(config)# hostname Mesh-Router
+Mesh-Router(config)# enable secret class123
+
+! Console and VTY lines
+Mesh-Router(config)# line console 0
+Mesh-Router(config-line)# password cisco123
+Mesh-Router(config-line)# login
+Mesh-Router(config-line)# exit
+Mesh-Router(config)# line vty 0 4
+Mesh-Router(config-line)# password cisco123
+Mesh-Router(config-line)# login
+Mesh-Router(config-line)# exit
+
+! Interface to Mesh Topology
+Mesh-Router(config)# interface gigabitEthernet 0/0
+Mesh-Router(config-if)# description To-Mesh-Topology
+Mesh-Router(config-if)# ip address 192.168.4.1 255.255.255.0
+Mesh-Router(config-if)# ipv6 address 2001:DB8:ACAD:4::1/64
+Mesh-Router(config-if)# no shutdown
+Mesh-Router(config-if)# exit
+
+! Serial interface to Core Router
+Mesh-Router(config)# interface serial 0/3/0
+Mesh-Router(config-if)# description To-Core-Router-S0/3/0
+Mesh-Router(config-if)# ip address 192.168.100.14 255.255.255.252
+Mesh-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::14/126
+Mesh-Router(config-if)# bandwidth 2000
+Mesh-Router(config-if)# no shutdown
+Mesh-Router(config-if)# exit
+
+! Routing
+Mesh-Router(config)# ipv6 unicast-routing
+Mesh-Router(config)# router ospf 1
+Mesh-Router(config-router)# router-id 5.5.5.5
+Mesh-Router(config-router)# network 192.168.4.0 0.0.0.255 area 0
+Mesh-Router(config-router)# network 192.168.100.12 0.0.0.3 area 0
+Mesh-Router(config-router)# exit
+
+! Security and save
+Mesh-Router(config)# service password-encryption
+Mesh-Router(config)# banner motd # Mesh Topology Router #
+Mesh-Router(config)# exit
+Mesh-Router# copy running-config startup-config
+
+---
+
+Ring Router Configuration 
+Router> enable
+Router# configure terminal
+Router(config)# hostname Ring-Router
+Ring-Router(config)# enable secret class123
+
+! Console and VTY lines
+Ring-Router(config)# line console 0
+Ring-Router(config-line)# password cisco123
+Ring-Router(config-line)# login
+Ring-Router(config-line)# exit
+Ring-Router(config)# line vty 0 4
+Ring-Router(config-line)# password cisco123
+Ring-Router(config-line)# login
+Ring-Router(config-line)# exit
+
+! Interface to Ring Topology
+Ring-Router(config)# interface gigabitEthernet 0/0
+Ring-Router(config-if)# description To-Ring-Topology
+Ring-Router(config-if)# ip address 192.168.5.1 255.255.255.0
+Ring-Router(config-if)# ipv6 address 2001:DB8:ACAD:5::1/64
+Ring-Router(config-if)# no shutdown
+Ring-Router(config-if)# exit
+
+! Serial interface to Core Router
+Ring-Router(config)# interface serial 0/3/0
+Ring-Router(config-if)# description To-Core-Router-S0/2/0
+Ring-Router(config-if)# ip address 192.168.100.18 255.255.255.252
+Ring-Router(config-if)# ipv6 address 2001:DB8:ACAD:100::18/126
+Ring-Router(config-if)# bandwidth 2000
+Ring-Router(config-if)# no shutdown
+Ring-Router(config-if)# exit
+
+! Routing
+Ring-Router(config)# ipv6 unicast-routing
+Ring-Router(config)# router ospf 1
+Ring-Router(config-router)# router-id 6.6.6.6
+Ring-Router(config-router)# network 192.168.5.0 0.0.0.255 area 0
+Ring-Router(config-router)# network 192.168.100.16 0.0.0.3 area 0
+Ring-Router(config-router)# exit
+
+! Security and save
+Ring-Router(config)# service password-encryption
+Ring-Router(config)# banner motd # Ring Topology Router #
+Ring-Router(config)# exit
+Ring-Router# copy running-config startup-config
+---
