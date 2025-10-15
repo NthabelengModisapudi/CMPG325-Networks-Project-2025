@@ -295,9 +295,13 @@ Gateway: 192.168.2.1
 ---
 
 ### Hybrid Topology
+
+
 <img width="1366" height="768" alt="Screenshot (22)" src="https://github.com/user-attachments/assets/2981d36f-485e-43ac-9b0e-53e921b9f0aa" />
 
 <img width="1366" height="768" alt="Screenshot (23)" src="https://github.com/user-attachments/assets/49b5ae2a-90d6-4e88-925c-b0900dd4a97f" />
+
+<img width="1366" height="768" alt="Screenshot (30)" src="https://github.com/user-attachments/assets/96ad1643-b862-4cec-92cb-270af350d80a" />
 
 ---
 ## Individual Network Feature Configuration
