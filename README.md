@@ -56,8 +56,6 @@ Network Topologies Design &amp; Simulation, Feature Configuration using Cisco Pa
 
 ### 5.0 Project Reflection
 - 5.1 Challenges Encountered
-- 5.2 Key Learnings
-
 ---
 
 ## Project Overview
@@ -301,6 +299,24 @@ Gateway: 192.168.2.1
 
 <img width="1366" height="768" alt="Screenshot (23)" src="https://github.com/user-attachments/assets/49b5ae2a-90d6-4e88-925c-b0900dd4a97f" />
 
+---
+## Individual Network Feature Configuration
+
+<img width="1366" height="768" alt="Screenshot (24)" src="https://github.com/user-attachments/assets/e2459094-bf86-4f8d-ab0c-242301b2514c" />
+
+<img width="1366" height="768" alt="Screenshot (25)" src="https://github.com/user-attachments/assets/a6b3c7d2-e9c2-4852-a6b2-156cb2caa10e" />
+
+<img width="1366" height="768" alt="Screenshot (26)" src="https://github.com/user-attachments/assets/09372ac3-63ce-4b00-96de-1eb58bfa2e95" />
+
+<img width="1366" height="768" alt="Screenshot (27)" src="https://github.com/user-attachments/assets/e2032f12-e3ca-4c64-ad3b-b96796f6d906" />
+
+<img width="1366" height="768" alt="Screenshot (28)" src="https://github.com/user-attachments/assets/c7dff0ce-ffe0-4e83-9ebb-3f031188304d" />
+
+<img width="1366" height="768" alt="Screenshot (29)" src="https://github.com/user-attachments/assets/59dab310-b823-4701-a778-1adb82b03598" />
+
+---
+
 ## Project Reflection
 ### Challenges Encountered
-Devices from different topologies should nothave the same IP addresses.My mistake was to have devices from different topologies have the same IP address like in the mesh and ring topologies as it caused IP configuration conflits. Later decided to change Mesh Topology devices' IP address.
+Devices from different topologies should not have the same IP addresses.My mistake was to have devices from different topologies have the same IP address like in the mesh and ring topologies as it caused IP configuration conflits. Later decided to change Mesh Topology devices' IP address.
+While the primary objective of configuring WPA3 security was not achieved due to platform limitations, i decide to select configuring WPA2 security. The successful implementation of WPA2-Personal security and verification of network connectivity demonstrated core networking principles and adaptability in real-world IT scenarios where ideal configurations may not always be immediately available.
